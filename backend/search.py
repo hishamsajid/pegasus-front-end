@@ -10,4 +10,4 @@ class Basic:
         print form_submit
         return form_submit
     def check(self):
-        print 'testing123'
+        return 'hello'

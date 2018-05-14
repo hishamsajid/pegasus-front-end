@@ -20,7 +20,7 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('index2.html', title='Home', user=user, posts=posts)
 
 @app.route('/login', methods =['GET','POST'])
 def login():
@@ -31,7 +31,9 @@ def login():
         
         Basic1 = Basic()
         returned = Basic1.getUserName(form.username.data)
+        returned2 = Basic1.check()
         flash(returned)
+        flash(returned2)
 
        
 
