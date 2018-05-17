@@ -22,21 +22,15 @@ def index():
     ]
     return render_template('index2.html', title='Home', user=user, posts=posts)
 
+@app.route('/search')
+def search():
+	return render_template('search.html', title='Search')
+
 @app.route('/login', methods =['GET','POST'])
 def login():
     form = LoginForm()
-    if form.validate_on_submit():
-        flash('Login requested for user {}, remember_me=[]=={}'.format(
-            form.username.data,form.remember_me.data))
-        
-        Basic1 = Basic()
-        returned = Basic1.getUserName(form.username.data)
-        returned2 = Basic1.check()
-        flash(returned)
-        flash(returned2)
+    if form.validate_on_submit():  
 
-       
-
-        return redirect(url_for('index'))
+        return redirect(url_for('search'))
         
     return render_template('login.html', title = 'Sign In', form=form)
